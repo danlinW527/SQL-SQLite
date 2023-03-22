@@ -1,0 +1,49 @@
+CREATE TABLE Student(
+	STU_NUM char(6) unique,
+    STU_SNAME varchar(15) NOT NULL,
+    STU_FNAME varchar(15) NOT NULL,
+    STU_INITIAL char(1),
+    STU_STARTDATE date,
+    COURSE_CODE char(3),
+    PROJ_NUM int(2)
+);
+
+
+INSERT INTO Student
+	VALUES('01', 'Snow', 'John', 'E', '05-Apr-14', '201', 6)
+
+INSERT INTO Student
+	VALUES('02', 'Stark', 'Arya', 'C', '12-JUL-17', '305',11)
+
+INSERT INTO Student
+	VALUES('03', 'Lannister', 'Jamie', 'C', '05-Sep-12', '101',2)
+
+INSERT INTO Student
+	VALUES('04', 'Lannister', 'Cercei', 'J', '05-Sep-12', '101',2)
+
+INSERT INTO Student
+	VALUES('05', 'Greyjoy', 'Theon', 'I', '09-Dec-15', '402',14)
+INSERT INTO Student
+	VALUES('06', 'Tyrell', 'Margaery', 'Y', '12-Jul-17', '305',10)
+INSERT INTO Student
+	VALUES('07', 'Baratheon', 'Tommen', 'R', '13-Jun-19', '201',5)
+
+SELECT * FROM Student
+WHERE COURSE_CODE = '305'
+
+
+UPDATE Student
+SET COURSE_CODE = '304'
+WHERE STU_NUM =  '07'
+
+DELETE FROM Student
+WHERE STU_SNAME = 'Lannister' and STU_FNAME = 'Jamie' and STU_STARTDATE = '05-sep-12' and COURSE_CODE = '101' and PROJ_NUM = 2 
+
+
+UPDATE Student
+SET PROJ_NUM = 14
+WHERE STU_STARTDATE <= 01-01-2016 and COURSE_CODE >= '201'
+
+DELETE FROM Student;
+
+DROP TABLE Student;
